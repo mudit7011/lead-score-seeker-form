@@ -1,13 +1,13 @@
 
-import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
 	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./pages/**/*.{js,jsx}",
+		"./components/**/*.{js,jsx}",
+		"./app/**/*.{js,jsx}",
+		"./src/**/*.{js,jsx}",
 	],
 	prefix: "",
 	theme: {
@@ -113,8 +113,8 @@ export default {
 		}
 	},
 	plugins: [
-		require("tailwindcss-animate"),
-		function({ addUtilities }: { addUtilities: Function }) {
+		tailwindcssAnimate,
+		function({ addUtilities }) {
 			const newUtilities = {
 				'.animation-delay-100': {
 					'animation-delay': '100ms',
@@ -138,4 +138,4 @@ export default {
 			addUtilities(newUtilities)
 		}
 	],
-} satisfies Config;
+};
