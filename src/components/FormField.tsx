@@ -1,7 +1,16 @@
 
 import { useState } from 'react';
 
-const FormField = ({ type, name, placeholder, value, onChange, icon }) => {
+interface FormFieldProps {
+  type: 'input' | 'textarea';
+  name: string;
+  placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  icon: React.ReactNode;
+}
+
+const FormField = ({ type, name, placeholder, value, onChange, icon }: FormFieldProps) => {
   const [focused, setFocused] = useState(false);
 
   const baseClasses = `

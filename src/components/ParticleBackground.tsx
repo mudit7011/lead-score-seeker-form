@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react';
 
 const ParticleBackground = () => {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -14,7 +14,16 @@ const ParticleBackground = () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const particles = [];
+    const particles: Array<{
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      radius: number;
+      alpha: number;
+      color: string;
+    }> = [];
+
     const colors = ['#8B5CF6', '#EC4899', '#06B6D4', '#10B981'];
 
     for (let i = 0; i < 50; i++) {
