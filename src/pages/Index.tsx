@@ -25,7 +25,7 @@ const Index = () => {
     try {
       // Simulate API call delay for better UX
       await new Promise(resolve => setTimeout(resolve, 2000));
-      const res = await axios.post("http://localhost:4000/lead-score", form);
+      const res = await axios.post("http://localhost:4000/api/leads", form);
       setScore(res.data.score);
     } catch (error) {
       console.error("Error submitting form:", error);
